@@ -1,0 +1,7 @@
+name = "InterferometerSimulations"
+uuid = "e7baf0de-9a53-42e7-a5f6-a2b13beba9c7"
+authors = ["Brandon Nelson <nelson.brandon@mayo.edu>"]
+version = "0.1.0"
+
+[deps]
+GratingInterferometry = "76e58565-48ac-4259-ac1d-b0229dd4da5f"
