@@ -1,5 +1,7 @@
 module PhaseStepping
 
+export phase_step
+
 using ..Phantoms: PhaseContrastData
 
 function sample_moire_pattern(proj::PhaseContrastData, step_position=0; ref=false, moire_periods=5, ϕ=0, step_periods=1)
