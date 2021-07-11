@@ -12,7 +12,6 @@ ref: if true returns a reference moire pattern with no object
 ϕ: the system phase  (can be a scalar or 2D array)
 """
 function sample_moire_pattern(proj::PhaseContrastData, step_position=0; ref=false, moire_periods=5, ϕ=0)
-    @assert  step_position  >=  0
     M, N = size(proj)
     lateral_position = [i/M for i = range(1, M, step=1), j = range(1, N, step=1)];
     if ref
