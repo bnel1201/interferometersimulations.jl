@@ -2,6 +2,8 @@ module Phantoms
 
 export ellipsoid, PhaseContrastData, phantom_dataset
 
+using Images, ImageTransformations
+
 """
 # Phantoms.ellipsoid(;foci=(0.5, 0.5, 0.5), axes=(0.25, 0.25, 0.25), N=100)
 
@@ -48,13 +50,14 @@ project(A,dims=1) = sum(A, dims=dims)[1,:,:]
 # phantom_dataset(phantom=ellipsoid(); true_atten_val = 1e-3, true_phase_val = π/200, true_vis_val = 0.5e-3)
 
 ## Summary
-Take a 2D or 3D array and turn it into a PhaseContrastData set while assigning values for atten, phase, and visibility
+Take a 2D or 3D array and turn it into a PhaseContrastData set while assigning values for atten, differential phase, and visibility
 """
 function phantom_dataset(phantom=ellipsoid(); true_atten_val = 1e-3, true_phase_val = π/200, true_vis_val = 0.5e-3)
     true_atten = project(true_atten_val.*phantom)
     true_phase = project(true_phase_val.*phantom)
+    diff_phase = imgradients(true_phase, KernelFactors.sobel)[2]
     true_vis = 1 .- project(true_vis_val.*phantom)
-    return PhaseContrastData(true_atten, true_phase, true_vis)
+    return PhaseContrastData(true_atten, diff_phase, true_vis)
 end
 
 end
