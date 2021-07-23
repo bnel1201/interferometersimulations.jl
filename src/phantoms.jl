@@ -55,7 +55,7 @@ Take a 2D or 3D array and turn it into a PhaseContrastData set while assigning v
 function phantom_dataset(phantom=ellipsoid(); true_atten_val = 1e-3, true_phase_val = π/200, true_vis_val = 0.5e-3)
     true_atten = project(true_atten_val.*phantom)
     true_phase = project(true_phase_val.*phantom)
-    diff_phase = imgradients(true_phase, KernelFactors.sobel)[2]
+    diff_phase = imgradients(true_phase, KernelFactors.sobel)[1]
     true_vis = 1 .- project(true_vis_val.*phantom)
     return PhaseContrastData(true_atten, diff_phase, true_vis)
 end
