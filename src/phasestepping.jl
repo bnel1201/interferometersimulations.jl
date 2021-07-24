@@ -7,7 +7,7 @@ using ..Phantoms: PhaseContrastData
 """
 sample_moire_pattern(proj::PhaseContrastData, step_position=0; ref=false, moire_periods=5, ϕ=0)
 
-step_position: x_n = 2\pi n/N step position as fraction of 1 period
+step_position: x_n = 2 pi n/N step position as fraction of 1 period
 ref: if true returns a reference moire pattern with no object
 ϕ: the system phase  (can be a scalar or 2D array)
 """
