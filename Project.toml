@@ -1,7 +1,7 @@
 name = "InterferometerSimulations"
 uuid = "e7baf0de-9a53-42e7-a5f6-a2b13beba9c7"
 authors = ["Brandon Nelson <nelson.brandon@mayo.edu>"]
-version = "0.1.2"
+version = "0.1.3"
 
 [deps]
 DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
