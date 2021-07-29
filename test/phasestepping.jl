@@ -45,6 +45,6 @@ max_freq = argmax(ref_freq_response)
     ϕr = angle.(fft(ref, 3)[:,:,nperiods+1])
     ϕo = angle.(fft(obj, 3)[:,:,nperiods+1])
 
-    dphase = unwrap(ϕo .- ϕr)
+    dphase = unwrap(ϕo .- ϕr, dims=1)
     @test dphase ≈ true_proj.phase
 end
