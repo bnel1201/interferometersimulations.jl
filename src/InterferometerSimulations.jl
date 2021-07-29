@@ -6,5 +6,6 @@ include("phantoms.jl")
 using .Phantoms
 include("phasestepping.jl")
 using .PhaseStepping
+include("phasegradients.jl")
 
 end # module

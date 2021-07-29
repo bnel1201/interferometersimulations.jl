@@ -3,6 +3,7 @@ using Statistics
 using InterferometerSimulations
 ##
 base_phantom = ellipsoid()
+
 @test size(base_phantom) == (100, 100, 100)
 @test mean(base_phantom) ≈ 0.065117
 ##
