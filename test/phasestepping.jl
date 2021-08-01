@@ -8,18 +8,19 @@ using InterferometerSimulations
 
 ##
 true_proj = phantom_dataset()
-nperiods = 10
-nsteps = 40
+nperiods = 5
+nsteps = 400
 ref = phase_step(true_proj, ref=true, nsteps=nsteps, nperiods=nperiods)
 obj = phase_step(true_proj, nsteps=nsteps, nperiods=nperiods)
 
 @test (size(ref), size(obj)) == ((100, 100, nsteps), (100, 100, nsteps))
 
-I0 = 58982.4
-@test minimum(ref) ≈ 0 #this assumes 100% reference visibility BTW
-@test mean(ref) ≈ I0/2
+I0 = 2^16*0.9
+ref_vis = 0.3
+@test minimum(ref) ≈ I0*(1-ref_vis) #this assumes 100% reference visibility BTW
+@test mean(ref) ≈ (maximum(ref) + minimum(ref))/2
 @test maximum(ref) ≈ I0
-
+# @test (maximum(ref) - minimum(ref))/mean(ref) ≈ ref_vis
 @test mean(obj) < mean(ref)
 
 ## test periods
