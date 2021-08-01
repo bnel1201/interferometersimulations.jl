@@ -15,9 +15,10 @@ obj = phase_step(true_proj, nsteps=nsteps, nperiods=nperiods)
 
 @test (size(ref), size(obj)) == ((100, 100, nsteps), (100, 100, nsteps))
 
-@test minimum(ref) ≈ 0
-@test mean(ref) ≈ 1
-@test maximum(ref) ≈ 2
+I0 = 58982.4
+@test minimum(ref) ≈ 0 #this assumes 100% reference visibility BTW
+@test mean(ref) ≈ I0/2
+@test maximum(ref) ≈ I0
 
 @test mean(obj) < mean(ref)
 

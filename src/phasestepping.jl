@@ -11,16 +11,16 @@ sample_moire_pattern(proj::PhaseContrastData, stepposition=0; ref=false, moirepe
 stepposition: x_n = 2 pi n/N step position as fraction of 1 period
 ref: if true returns a reference moire pattern with no object
 ϕ: the system phase  (can be a scalar or 2D array)
-
-
+I0: baseline intensity measurement, by default I0 = 2^16*0.9 = 58982.4,
+this accounts for a 16 bit dectector bin filled to 90%
 """
-function sample_moire_pattern(proj::PhaseContrastData, stepposition=0; ref=false, moireperiods=5, ϕ=0)
+function sample_moire_pattern(proj::PhaseContrastData, stepposition=0; ref=false, moireperiods=5, ϕ=0, I0=58982.4)
     M, N = size(proj)
     lateral_position = [2*π*moireperiods*i/M for i = range(1, M, step=1), j = range(1, N, step=1)]';
     if ref
         proj = PhaseContrastData(0, 0, 1)
     end
-    return 1 .- proj.atten .+ proj.vis.*cos.(stepposition .+ proj.phase .+ lateral_position .+ ϕ)
+    return I0 .* 0.5 .* (1 .- proj.atten .+ proj.vis.*cos.(stepposition .+ proj.phase .+ lateral_position .+ ϕ))
 end
 
 function phase_step(proj::PhaseContrastData; nsteps=3, nperiods=1, kwargs...)
