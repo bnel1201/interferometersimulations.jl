@@ -9,7 +9,7 @@ using InterferometerSimulations
 ##
 true_proj = phantom_dataset()
 nperiods = 5
-nsteps = 400
+nsteps = 40
 ref = phase_step(true_proj, ref=true, nsteps=nsteps, nperiods=nperiods)
 obj = phase_step(true_proj, nsteps=nsteps, nperiods=nperiods)
 
