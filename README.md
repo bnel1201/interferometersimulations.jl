@@ -8,7 +8,7 @@ author: Brandon J. Nelson
 
 1. after cloning this repo `cd interferometersimulations.jl` to enter the repo directory and With [Julia](https://julialang.org/) installed, activate the Julia in the environment:
 ```bash
-julia --project=.
+$ julia --project=.
 ```
 2. Enter the Julia package manage by entering `]`, (the prompt should change from `julia>` to `pkg>`) and `instantiate` the environment to install all relevant packages
 ```
@@ -19,7 +19,7 @@ pkg> instantiate
 if you are still in the Julia command prompt, run a script using the `include` command:
 
 ```julia
-include("scripts/make_psc.jl)
+julia> include("scripts/make_psc.jl)
 ```
 
 The output of this script are the object and reference phase step curves in [nrrd](https://teem.sourceforge.net/nrrd/format.html) format, which can be opened easily by [ImageJ](https://imagej.net/libs/scifio), [3DSlicer](https://slicer.readthedocs.io/en/v4.11/user_guide/data_loading_and_saving.html), [Python](https://pypi.org/project/pynrrd/), [Matlab](https://www.mathworks.com/help/medical-imaging/ref/nrrdread.html), ...
@@ -27,7 +27,7 @@ The output of this script are the object and reference phase step curves in [nrr
 if you have exited Julia, you can run the script from bash or command prompt by first calling Julia (with the `--project=.` flag to start Julia in the current project with all the packages installed), followed by the script, e.g.:
 
 ```bash
-julia --project=.  scripts/make_psc.jl
+$ julia --project=.  scripts/make_psc.jl
 ```
 
 ## Further Explorations
@@ -35,13 +35,13 @@ julia --project=.  scripts/make_psc.jl
 1. try the next script with noise and inhomogenous phase gradients
 
 ```bash
-julia --project=.  scripts/make_more_realistic_psc.jl
+$ julia --project=.  scripts/make_more_realistic_psc.jl
 ```
 
 2. try in interactive mode by starting julia in the environment: `julia --project=.` then run scripts (for more information on Julia please see: <https://docs.julialang.org/en/v1/manual/getting-started/>
 
 ```julia
-julia>include("scripts/make_more_realistic_psc.jl")
+julia> include("scripts/make_more_realistic_psc.jl")
 ```
 
 3. Try Jupyterlab to try the jupyter notebooks in the `notebooks` dir
@@ -49,8 +49,8 @@ julia>include("scripts/make_more_realistic_psc.jl")
 In Julia, enter the package manager again with `]` and `add` `IJulia`, "interactive Julia", then `build IJulia` to install jupyterlab
 
 ```julia
-pkg>add IJulia
-pkg>build IJulia
+pkg> add IJulia
+pkg> build IJulia
 ```
 
 enter `backspace` to return to the normal `julia>` prompt and enter jupyterlab in the current directory:
