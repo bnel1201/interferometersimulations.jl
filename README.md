@@ -16,6 +16,14 @@ pkg> instantiate
 ```
 3. run a sample script (be sure to include `--project=.` to use the current environment while running the script)
 
+if you are still in the Julia command prompt, run a script using the `include` command:
+
+```julia
+include("scripts/make_psc.jl)
+```
+
+if you have exited Julia, you can run the script from bash or command prompt by first calling Julia (with the `--project=.` flag to start Julia in the current project with all the packages installed), followed by the script, e.g.:
+
 ```bash
 julia --project=.  scripts/make_psc.jl
 ```
